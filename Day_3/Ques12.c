@@ -1,18 +1,25 @@
 #include <stdio.h>
 
-int main()
-{
-    int i, n, m;
-    printf("enter the value of two numbers you want to print the LCM:");
-    scanf("%d %d", &n, &m);
-    printf("the least common multiple of %d and %d is:", n, m);
-    for (i = 1; i <= n * m; i++)
-    {
-        if (i % n == 0 && i % m == 0)
-        {
-            printf("%d ", i);
-            break;
+int main() {
+
+    int a, b, lcm;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+
+    // LCM is always >= the larger number
+    // Start checking from the larger number upward
+    lcm = (a > b) ? a : b;
+
+    // Keep going until we find a number divisible by both
+    while (1) {                        // infinite loop
+        if (lcm % a == 0 && lcm % b == 0) {
+            break;                     // found LCM — exit!
         }
+        lcm++;                         // try next number
     }
+
+    printf("LCM of %d and %d = %d\n", a, b, lcm);
+
     return 0;
 }
