@@ -32,7 +32,7 @@ int main(){
         
     }
 
-    while (index<n)
+    while (index<n) 
     {
         arr[index] = 0;
         index++;
